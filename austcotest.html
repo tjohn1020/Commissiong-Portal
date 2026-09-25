@@ -340,19 +340,65 @@
     const completeRoomButton = document.querySelector('#completeRoom');
     const submitReportButton = document.querySelector('#submitReport');
     const reportStatus = document.querySelector('#reportStatus');
+    const hospitalSelect = form.querySelector('select[name="hospital"]');
     const reportStorageKey = 'pulseconnect-commissioning-report';
-    let rooms = loadRooms();
+    let reportData = loadReportData();
+    let selectedHospital = hospitalSelect.value;
+    let rooms = reportData.roomsByHospital[selectedHospital] || [];
 
-    function loadRooms() {
+    function loadReportData() {
         try {
-            return JSON.parse(sessionStorage.getItem(reportStorageKey)) || [];
+            const saved = JSON.parse(sessionStorage.getItem(reportStorageKey));
+
+            if (Array.isArray(saved)) {
+                return {
+                    roomsByHospital: { [hospitalSelect.value]: saved },
+                    draftsByHospital: {}
+                };
+            }
+
+            return {
+                roomsByHospital: saved?.roomsByHospital || {},
+                draftsByHospital: saved?.draftsByHospital || {}
+            };
         } catch (error) {
-            return [];
+            return { roomsByHospital: {}, draftsByHospital: {} };
         }
     }
 
-    function saveRooms() {
-        sessionStorage.setItem(reportStorageKey, JSON.stringify(rooms));
+    function saveReportData() {
+        sessionStorage.setItem(reportStorageKey, JSON.stringify(reportData));
+    }
+
+    function saveCurrentDraft() {
+        reportData.draftsByHospital[selectedHospital] = Array.from(form.querySelectorAll('input, select'))
+            .filter((control) => control.name !== 'hospital' && control.type !== 'submit')
+            .map((control) => ({
+                name: control.name,
+                type: control.type,
+                value: control.value,
+                checked: control.checked
+            }));
+    }
+
+    function loadDraft(hospital) {
+        const draft = reportData.draftsByHospital[hospital];
+
+        if (!draft) {
+            clearRoomFields();
+            return;
+        }
+
+        const controls = Array.from(form.querySelectorAll('input, select'))
+            .filter((control) => control.name !== 'hospital' && control.type !== 'submit');
+        draft.forEach((savedControl, index) => {
+            const control = controls[index];
+            if (!control) {
+                return;
+            }
+            control.value = savedControl.value;
+            control.checked = savedControl.checked;
+        });
     }
 
     function collectRoom() {
@@ -406,13 +452,16 @@
 
     function resetReport() {
         rooms = [];
-        saveRooms();
+        reportData.roomsByHospital[selectedHospital] = rooms;
+        delete reportData.draftsByHospital[selectedHospital];
+        saveReportData();
         updateStatus('0 rooms recorded. Ready for a new report.');
     }
 
     function createReport() {
         const header = [
             'PulseConnect Systems Commissioning Report',
+            `Hospital: ${selectedHospital}`,
             `Generated: ${new Date().toLocaleString()}`,
             `Rooms completed: ${rooms.length}`,
             ''
@@ -429,14 +478,17 @@
         const file = new Blob([report], { type: 'text/plain' });
         const link = document.createElement('a');
         link.href = URL.createObjectURL(file);
-        link.download = `pulseconnect-commissioning-report-${new Date().toISOString().slice(0, 10)}.txt`;
+        const hospitalFileName = selectedHospital.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '');
+        link.download = `pulseconnect-${hospitalFileName}-commissioning-report-${new Date().toISOString().slice(0, 10)}.txt`;
         link.click();
         URL.revokeObjectURL(link.href);
     }
 
     completeRoomButton.addEventListener('click', () => {
         rooms.push(collectRoom());
-        saveRooms();
+        reportData.roomsByHospital[selectedHospital] = rooms;
+        delete reportData.draftsByHospital[selectedHospital];
+        saveReportData();
         clearRoomFields();
         updateStatus(`${rooms.length} room${rooms.length === 1 ? '' : 's'} recorded. Ready for the next room.`);
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -452,7 +504,7 @@
         const roomCount = rooms.length;
         downloadReport(report);
         resetReport();
-        const subject = encodeURIComponent(`PulseConnect Commissioning Report - ${roomCount} rooms`);
+        const subject = encodeURIComponent(`${selectedHospital} Commissioning Report - ${roomCount} rooms`);
         const body = encodeURIComponent(report);
         const mailto = `mailto:tyler.johnson@pulseconnectsystems.com?subject=${subject}&body=${body}`;
 
@@ -464,8 +516,18 @@
         }
     });
 
+    hospitalSelect.addEventListener('change', () => {
+        saveCurrentDraft();
+        reportData.roomsByHospital[selectedHospital] = rooms;
+        selectedHospital = hospitalSelect.value;
+        rooms = reportData.roomsByHospital[selectedHospital] || [];
+        loadDraft(selectedHospital);
+        saveReportData();
+        updateStatus(`${rooms.length} room${rooms.length === 1 ? '' : 's'} recorded for ${selectedHospital}.`);
+    });
+
     form.addEventListener('submit', (event) => event.preventDefault());
-    updateStatus(`${rooms.length} room${rooms.length === 1 ? '' : 's'} recorded.`);
+    updateStatus(`${rooms.length} room${rooms.length === 1 ? '' : 's'} recorded for ${selectedHospital}.`);
 </script>
 </body>
 </html>
