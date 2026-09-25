@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
     <title>Austo Testing</title>
 </head>
-<body>
+<body class="commissioning-page">
     <a href="index.html">Home</a>
     <br>
     <hr>
@@ -15,10 +17,10 @@
     <div>
         <label>Hospital</label>
         <select name="hospital">
-            <option value="Miami, FL-EH">Miami, FL-EH</option>
-            <option value="Stuart, FL-EH">Stuart, FL-EH</option>
-            <option value="Tallahassee, FL-EH">Tallahassee, FL-EH</option>
-            <option value="Midland, TX-EH">Midland, TX-EH</option>
+            <option value="Cleveland, TN-EH">Cleveland, TN-EH</option>
+            <option value="Avondale, AZ-EH">Avondale, AZ-EH</option>
+            <option value="Owasso, OK-EH">Owasso, OK-EH</option>
+            <option value="Lakewood, NJ-Specialty">Lakewood, NJ-Specialty</option>
         </select>
     </div>
     <br>
@@ -33,12 +35,11 @@
         <label>Technician</label>
         <select name="technician">
             <option value="Tyler Johnson">Tyler Johnson</option>
-            <option value="Jason Winford">Jason Winford</option>
-            <option value="Sergio Nunez">Sergio Nunez</option>
-            <option value="Ryan Phillips">Ryan Phillips</option>
-            <option value="Raul Garcia">Raul Garcia</option>
-            <option value="Wayne Sanders">Wayne Sanders</option>
-            <option value="Josh Strayer">Josh Strayer</option>
+            <option value="Conner Johnson">Conner Johnson</option>
+            <option value="Tony Rivera">Tony Rivera</option>
+            <option value="Morgan Hagan">Morgan Hagan</option>
+            <option value="John Lara">John Lara</option>
+            <option value="Guest">Guest</option>
         </select>
     </div>
     <br>
@@ -69,28 +70,28 @@
     </div>
     <br>
     <div>
-        <label>ANPD1 Display Text</label>
-        <input type="text" name="anpd1Text">
+        <label>ANPD2 Display Call</label>
+        <input type="text" name="anpd2Call">
     </div>
     <br>
     <div>
-        <label>ANPD1 Text Color</label>
+        <label>ANPD2 Call Color</label>
         <input type="color" name="color">
     </div>
     <br>
     <hr>
     <div>
-        <label>Code</label>
+        <label>CODE</label>
         <input type="checkbox" name="code">
     </div>
     <br>
     <div>
-        <label>ANPD1 Display Text</label>
-        <input type="text" name="anpd1Text">
+        <label>ANPD2 Display Call</label>
+        <input type="text" name="anpd2Call">
     </div>
     <br>
     <div>
-        <label>ANPD1 Text Color</label>
+        <label>ANPD2 Call Color</label>
         <input type="color" name="color">
     </div>
     <br>
@@ -101,12 +102,12 @@
     </div>
     <br>
     <div>
-        <label>ANPD1 Display Text</label>
-        <input type="text" name="anpd1Text">
+        <label>ANPD2 Display Call</label>
+        <input type="text" name="anpd2Call">
     </div>
     <br>
     <div>
-        <label>ANPD1 Text Color</label>
+        <label>ANPD2 Call Color</label>
         <input type="color" name="color">
     </div>
     <br>
@@ -117,12 +118,12 @@
     </div>
     <br>
     <div>
-        <label>ANPD1 Display Text</label>
-        <input type="text" name="anpd1Text">
+        <label>ANPD2 Display Call</label>
+        <input type="text" name="anpd2Call">
     </div>
     <br>
     <div>
-        <label>ANPD1 Text Color</label>
+        <label>ANPD2 Call Color</label>
         <input type="color" name="color">
     </div>
     <br>
@@ -133,12 +134,12 @@
     </div>
     <br>
     <div>
-        <label>ANPD1 Display Text</label>
-        <input type="text" name="anpd1Text">
+        <label>ANPD2 Display Call</label>
+        <input type="text" name="anpd2Call">
     </div>
     <br>
     <div>
-        <label>ANPD1 Text Color</label>
+        <label>ANPD2 Call Color</label>
         <input type="color" name="color">
     </div>
     <br>
@@ -149,12 +150,12 @@
     </div>
     <br>
     <div>
-        <label>ANPD1 Display Text</label>
-        <input type="text" name="anpd1Text">
+        <label>ANPD2 Display Call</label>
+        <input type="text" name="anpd2Call">
     </div>
     <br>
     <div>
-        <label>ANPD1 Text Color</label>
+        <label>ANPD2 Call Color</label>
         <input type="color" name="color">
     </div>
     <br>
@@ -165,18 +166,306 @@
     </div>
     <br>
     <div>
-        <label>ANPD1 Display Text</label>
-        <input type="text" name="anpd1Text">
+        <label>ANPD2 Display Call</label>
+        <input type="text" name="anpd2Call">
     </div>
     <br>
     <div>
-        <label>ANPD1 Text Color</label>
+        <label>ANPD2 Call Color</label>
         <input type="color" name="color">
     </div>
     <br>
     <hr>
-    <input type="submit" name="submit"
-    value="Submit">
+    <div>
+        <label>Rapid Response</label>
+        <input type="checkbox" name="bed">
+    </div>
+    <br>
+    <div>
+        <label>ANPD2 Display Call</label>
+        <input type="text" name="anpd2Call">
+    </div>
+    <br>
+    <div>
+        <label>ANPD2 Call Color</label>
+        <input type="color" name="color">
+    </div>
+    <br>
+    <hr>
+    <div>
+        <label>Staff Assist Bed</label>
+        <input type="checkbox" name="bed">
+    </div>
+    <br>
+    <div>
+        <label>ANPD2 Display Call</label>
+        <input type="text" name="anpd2Call">
+    </div>
+    <br>
+    <div>
+        <label>ANPD2 Call Color</label>
+        <input type="color" name="color">
+    </div>
+    <br>
+    <hr>
+    <div>
+        <label>Staff Assist Bath</label>
+        <input type="checkbox" name="bed">
+    </div>
+    <br>
+    <div>
+        <label>ANPD2 Display Call</label>
+        <input type="text" name="anpd2Call">
+    </div>
+    <br>
+    <div>
+        <label>ANPD2 Call Color</label>
+        <input type="color" name="color">
+    </div>
+    <br>
+    <hr>
+    <div>
+        <label>Door</label>
+        <input type="checkbox" name="bed">
+    </div>
+    <br>
+    <div>
+        <label>ANPD2 Display Call</label>
+        <input type="text" name="anpd2Call">
+    </div>
+    <br>
+    <div>
+        <label>ANPD2 Call Color</label>
+        <input type="color" name="color">
+    </div>
+    <br>
+    <hr>
+    <div>
+        <label>EXIT</label>
+        <input type="checkbox" name="bed">
+    </div>
+    <br>
+    <div>
+        <label>ANPD2 Display Call</label>
+        <input type="text" name="anpd2Call">
+    </div>
+    <br>
+    <div>
+        <label>ANPD2 Call Color</label>
+        <input type="color" name="color">
+    </div>
+    <br>
+    <hr>
+    <div>
+        <label>PLUG</label>
+        <input type="checkbox" name="bed">
+    </div>
+    <br>
+    <div>
+        <label>ANPD2 Display Call</label>
+        <input type="text" name="anpd2Call">
+    </div>
+    <br>
+    <div>
+        <label>ANPD2 Call Color</label>
+        <input type="color" name="color">
+    </div>
+    <br>
+    <hr>
+    <div>
+        <label>Bed - Bed Rail</label>
+        <input type="checkbox" name="bed">
+    </div>
+    <br>
+    <div>
+        <label>ANPD2 Display Call</label>
+        <input type="text" name="anpd2Call">
+    </div>
+    <br>
+    <div>
+        <label>ANPD2 Call Color</label>
+        <input type="color" name="color">
+    </div>
+    <br>
+    <hr>
+    <div>
+        <label>CORD</label>
+        <input type="checkbox" name="bed">
+    </div>
+    <br>
+    <div>
+        <label>ANPD2 Display Call</label>
+        <input type="text" name="anpd2Call">
+    </div>
+    <br>
+    <div>
+        <label>ANPD2 Call Color</label>
+        <input type="color" name="color">
+    </div>
+    <br>
+    <hr>
+    <fieldset class="multi-check-row">
+        <legend>TV Controls</legend>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="tvOn"> TV ON</label>
+            <label><input type="checkbox" name="tvOff"> TV OFF</label>
+            <label><input type="checkbox" name="channelUp"> CHANNEL UP</label>
+            <label><input type="checkbox" name="channelDown"> CHANNEL DOWN</label>
+            <label><input type="checkbox" name="volumeUp"> VOLUME UP</label>
+            <label><input type="checkbox" name="volumeDown"> VOLUME DOWN</label>
+        </div>
+    </fieldset>
+    <fieldset class="multi-check-row">
+        <legend>AUDIO COMMUNICATION</legend>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="pst"> PST</label>
+            <label><input type="checkbox" name="pillowSpeaker"> Pillow Speaker</label>
+        </div>
+    </fieldset>
+    <br>
+    <div>
+        <label>Notes:</label>
+        <input type="text" name="notes">
+    </div>
+    <br>
+    <hr>
+    <div class="report-actions">
+        <button type="button" id="completeRoom">Complete Room</button>
+        <button type="button" id="submitReport">Submit Report</button>
+    </div>
+    <p class="report-status" id="reportStatus" role="status">0 rooms recorded.</p>
 </form>
+<script>
+    const form = document.querySelector('form');
+    const completeRoomButton = document.querySelector('#completeRoom');
+    const submitReportButton = document.querySelector('#submitReport');
+    const reportStatus = document.querySelector('#reportStatus');
+    const reportStorageKey = 'pulseconnect-commissioning-report';
+    let rooms = loadRooms();
+
+    function loadRooms() {
+        try {
+            return JSON.parse(sessionStorage.getItem(reportStorageKey)) || [];
+        } catch (error) {
+            return [];
+        }
+    }
+
+    function saveRooms() {
+        sessionStorage.setItem(reportStorageKey, JSON.stringify(rooms));
+    }
+
+    function collectRoom() {
+        const details = [];
+
+        Array.from(form.children).forEach((section) => {
+            if (section.matches('div')) {
+                const label = section.querySelector(':scope > label');
+                const control = section.querySelector('input, select');
+
+                if (!label || !control) {
+                    return;
+                }
+
+                const value = control.type === 'checkbox'
+                    ? (control.checked ? 'Yes' : 'No')
+                    : (control.value || '(blank)');
+                details.push(`${label.textContent.trim()}: ${value}`);
+            }
+
+            if (section.matches('fieldset')) {
+                const title = section.querySelector('legend').textContent.trim();
+                const controls = Array.from(section.querySelectorAll('.checkbox-group label'))
+                    .map((label) => {
+                        const input = label.querySelector('input');
+                        const name = label.textContent.trim();
+                        return `${name}: ${input.checked ? 'Yes' : 'No'}`;
+                    });
+                details.push(`${title}: ${controls.join(', ')}`);
+            }
+        });
+
+        return details;
+    }
+
+    function clearRoomFields() {
+        form.querySelectorAll('input[type="text"]').forEach((input) => {
+            input.value = '';
+        });
+        form.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+            input.checked = false;
+        });
+        form.querySelectorAll('input[type="color"]').forEach((input) => {
+            input.value = '#000000';
+        });
+    }
+
+    function updateStatus(message) {
+        reportStatus.textContent = message;
+    }
+
+    function resetReport() {
+        rooms = [];
+        saveRooms();
+        updateStatus('0 rooms recorded. Ready for a new report.');
+    }
+
+    function createReport() {
+        const header = [
+            'PulseConnect Systems Commissioning Report',
+            `Generated: ${new Date().toLocaleString()}`,
+            `Rooms completed: ${rooms.length}`,
+            ''
+        ];
+        const roomSections = rooms.flatMap((room, index) => [
+            `ROOM ${index + 1}`,
+            ...room,
+            ''
+        ]);
+        return [...header, ...roomSections].join('\n');
+    }
+
+    function downloadReport(report) {
+        const file = new Blob([report], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(file);
+        link.download = `pulseconnect-commissioning-report-${new Date().toISOString().slice(0, 10)}.txt`;
+        link.click();
+        URL.revokeObjectURL(link.href);
+    }
+
+    completeRoomButton.addEventListener('click', () => {
+        rooms.push(collectRoom());
+        saveRooms();
+        clearRoomFields();
+        updateStatus(`${rooms.length} room${rooms.length === 1 ? '' : 's'} recorded. Ready for the next room.`);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    submitReportButton.addEventListener('click', () => {
+        if (rooms.length === 0) {
+            updateStatus('Complete at least one room before submitting the report.');
+            return;
+        }
+
+        const report = createReport();
+        const roomCount = rooms.length;
+        downloadReport(report);
+        resetReport();
+        const subject = encodeURIComponent(`PulseConnect Commissioning Report - ${roomCount} rooms`);
+        const body = encodeURIComponent(report);
+        const mailto = `mailto:tyler.johnson@pulseconnectsystems.com?subject=${subject}&body=${body}`;
+
+        if (mailto.length < 60000) {
+            window.location.href = mailto;
+            updateStatus('Report downloaded and email draft opened.');
+        } else {
+            updateStatus('Report downloaded. It is too large for an email link; attach the downloaded file to your email.');
+        }
+    });
+
+    form.addEventListener('submit', (event) => event.preventDefault());
+    updateStatus(`${rooms.length} room${rooms.length === 1 ? '' : 's'} recorded.`);
+</script>
 </body>
 </html>
